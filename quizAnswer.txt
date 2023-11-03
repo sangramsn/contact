@@ -1,0 +1,30 @@
+#code : 1
+In this case, Code 2 is a better way to code the component. 
+The key difference between the two code blocks is the placement of the onClick event handler.
+
+<div onClick={handleClick}>
+  {animals.map((animal) => {
+    return <div>{animal}</div>;
+  })}
+</div>
+
+
+In Code 1, the onClick event is added to the outer div that wraps all the animal elements. 
+This means that clicking anywhere inside the div will trigger the event. 
+However, this approach does not provide a clear indication of which animal was clicked. 
+You would need to inspect the e.target.innerHTML to determine the clicked animal.
+
+
+
+#code : 2 
+<div>
+  {animals.map((animal) => {
+    return <div onClick={handleClick}>{animal}</div>;
+  })}
+</div>
+In Code 2, the onClick event is added to each individual animal div. 
+This approach associates the event handler directly with the animal being rendered. 
+When an animal is clicked, the event handler is invoked, and you can clearly see which animal was clicked.
+ This makes the code more maintainable and easier to understand.
+
+So, Code 2 is the better way to code the component because it provides a more intuitive and clear interaction for the user by attaching the event handler to each animal element.
